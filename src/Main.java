@@ -2,26 +2,35 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Linear Equation Resolver");
-        System.out.println("Given a equation as 'a * x + b = c', please enter constants:");
         Scanner scanner = new Scanner(System.in);
-        System.out.print("a: ");
-        double a = scanner.nextDouble();
 
-        System.out.print("b: ");
-        double b = scanner.nextDouble();
-
-        System.out.print("c: ");
-        double c = scanner.nextDouble();
-        if (a != 0) {
-            double answer = (c - b) / a;
-            System.out.printf("Equation pass with x = %f!\n", answer);
-        } else {
-            if (b == c) {
-                System.out.print("The solution is all x!");
-            } else {
-                System.out.print("No solution!");
-            }
+        System.out.print("Which month that you want to count days? ");
+        int month = scanner.nextInt();
+        String daysInMonth;
+        switch (month) {
+            case 2:
+                daysInMonth = "28 or 29";
+                break;
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                daysInMonth = "31";
+                break;
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                daysInMonth = "30";
+                break;
+            default:
+                daysInMonth = "";
         }
+
+        if (!daysInMonth.equals("")) System.out.printf("The month '%d' has %s days!", month, daysInMonth);
+        else System.out.print("Invalid input!");
     }
 }
