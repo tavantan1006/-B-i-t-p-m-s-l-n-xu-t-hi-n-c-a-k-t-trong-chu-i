@@ -2,18 +2,26 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        float width;
-        float height;
+        System.out.println("Linear Equation Resolver");
+        System.out.println("Given a equation as 'a * x + b = c', please enter constants:");
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("a: ");
+        double a = scanner.nextDouble();
 
-        Scanner scanner = new Scanner(System.in);//Khai báo đối tượng Scanner
+        System.out.print("b: ");
+        double b = scanner.nextDouble();
 
-        System.out.println("Enter width: ");
-        width = scanner.nextFloat();//Nhập chiều rộng
-
-        System.out.println("Enter height: ");
-        height = scanner.nextFloat();//Nhập chiều dài
-        float area = width * height;
-
-        System.out.println("Area is: " + area);
+        System.out.print("c: ");
+        double c = scanner.nextDouble();
+        if (a != 0) {
+            double answer = (c - b) / a;
+            System.out.printf("Equation pass with x = %f!\n", answer);
+        } else {
+            if (b == c) {
+                System.out.print("The solution is all x!");
+            } else {
+                System.out.print("No solution!");
+            }
+        }
     }
 }
