@@ -2,10 +2,10 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("[Thực hành] Đảo ngược các phần tử của mảng");
+        System.out.println("[Thực hành] Tìm giá trị trong mảng");
         Scanner sc = new Scanner(System.in);
         int size;
-        int [] arrayA;
+        String [] arrayStudent;
         do {
             System.out.println("Enter a size : ");
             size = sc.nextInt();
@@ -13,26 +13,34 @@ public class Main {
                 System.out.println("size < 20");
             }
         }while (size > 20);
-        arrayA = new int[size];
+        sc.nextLine();
+        arrayStudent = new String[size];
         int i = 0;
         while (i < size){
             System.out.println("Enter element array ["+i+"] = ");
-            arrayA[i] = sc.nextInt();
+            arrayStudent[i] = sc.nextLine();
             i++;
         }
+
         System.out.println("Show value of Elements : ");
-        for (int j = 0; j < arrayA.length; j++) {
-            System.out.print(arrayA[j] + "\t");
+        for (int j = 0; j < arrayStudent.length; j++) {
+            System.out.print(arrayStudent[j] + "\t");
         }
-        for (int j = 0; j < arrayA.length/2; j++) {
-            int temp =  arrayA[j];
-            arrayA[j] = arrayA[size - 1 - j];
-            arrayA[size - 1 - j] = temp;
-        }
+
         System.out.println();
-        System.out.println("Reverse array : ");
-        for (int j = 0; j < arrayA.length; j++) {
-            System.out.print(arrayA[j] + "\t");
+        String name ="";
+        System.out.println("Enter name you need to find : ");
+        name = sc.nextLine();
+        boolean check = false;
+        for (int j = 0; j < arrayStudent.length; j++) {
+            if (arrayStudent[j].equals(name)){
+                System.out.println("arrayStudent ["+j+"] = "+name);
+                check = true;
+                break;
+            }
+        }
+        if (check == false){
+            System.out.println("No find to Name you need find ");
         }
 
 
