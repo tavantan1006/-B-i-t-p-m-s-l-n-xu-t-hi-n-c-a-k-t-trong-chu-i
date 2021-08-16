@@ -2,30 +2,22 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        double F;
-        double C;
-        int choice;
-        do {
-            System.out.println("Menu");
-            System.out.println("1.Chuyển từ F --> C");
-            System.out.println("2.Chuyển từ C --> F");
-            System.out.println("3.Exit");
-            choice = sc.nextInt();
-            switch (choice){
-                case 1:
-                    System.out.println("Nhập F : ");
-                    F = sc.nextDouble();
-                    System.out.println(F+"F = "+(5.0/9)*(F-32)+"oC" );
-                    break;
-                case 2:
-                    System.out.println("Nhập C : ");
-                    C = sc.nextDouble();
-                    System.out.println(C+"C = "+(32+C*9/5)+"oF" );
-                    break;
-                default:
-                    System.out.println("Nhấn 3 để thoát vòng lặp !!!");
+        System.out.println("[Thực hành] Tìm giá trị nhỏ nhất trong mảng sử dụng phương thức");
+        int[] arrayA = {4,5,6,78,9,6,45};
+        System.out.println("Show Array : ");
+        for (int i = 0; i < arrayA.length; i++) {
+            System.out.print(arrayA[i] + "\t");
+        }
+        System.out.println();
+        System.out.println("Min in Array : "+Min(arrayA));
+    }
+    public static int Min (int[] array){
+        int min = array[0];
+        for (int i = 0; i < array.length; i++) {
+            if (min > array[i]){
+                min = array[i];
             }
-        }while (choice != 3);
+        }
+        return min;
     }
 }
