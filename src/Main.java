@@ -2,34 +2,30 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("[Thực hành] Tìm giá trị Max trong mảng");
         Scanner sc = new Scanner(System.in);
-        int size;
-        int [] arrayA;
+        double F;
+        double C;
+        int choice;
         do {
-            System.out.println("Enter a size : ");
-            size = sc.nextInt();
-            if (size > 20){
-                System.out.println("size < 20");
+            System.out.println("Menu");
+            System.out.println("1.Chuyển từ F --> C");
+            System.out.println("2.Chuyển từ C --> F");
+            System.out.println("3.Exit");
+            choice = sc.nextInt();
+            switch (choice){
+                case 1:
+                    System.out.println("Nhập F : ");
+                    F = sc.nextDouble();
+                    System.out.println(F+"F = "+(5.0/9)*(F-32)+"oC" );
+                    break;
+                case 2:
+                    System.out.println("Nhập C : ");
+                    C = sc.nextDouble();
+                    System.out.println(C+"C = "+(32+C*9/5)+"oF" );
+                    break;
+                default:
+                    System.out.println("Nhấn 3 để thoát vòng lặp !!!");
             }
-        }while (size > 20);
-        arrayA = new int[size];
-        int i = 0;
-        while (i < size){
-            System.out.println("Enter element array ["+i+"] = ");
-            arrayA[i] = sc.nextInt();
-            i++;
-        }
-        System.out.println("Max in Arrays : ");
-        int max;
-        max = arrayA[0];
-        for (int j = 0; j < arrayA.length; j++) {
-            if (max < arrayA[j]){
-                max = arrayA[j];
-            }
-        }
-        System.out.print(max);
-
-
+        }while (choice != 3);
     }
 }
