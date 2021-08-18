@@ -4,20 +4,29 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Tìm giá trị nhỏ nhất trong mảng");
-        System.out.println("Array : ");
-        int[][] arrayA = {{1,2,3,4,0,0,0,0,0},{1,2,3,4,5}};
-        System.out.println("Mảng 1 : ");
-        int min = arrayA[0][0];
-        for (int i = 0; i < arrayA.length; i++) {
-            for (int j = 0; j < arrayA[i].length; j++) {
-                if (min > arrayA[i][j]){
-                    min = arrayA[i][j];
-                }
-                System.out.print(arrayA[i][j] + "\t");
-            }
-            System.out.println();
+        int size;
+        int[] array;
+        Scanner scanner = new Scanner(System.in);
+        do {
+            System.out.print("Enter a size:");
+            size = scanner.nextInt();
+            if (size > 30)
+                System.out.println("Size should not exceed 30");
+        } while (size > 30);
+        array = new int[size];
+        int i = 0;
+        while (i < array.length) {
+            System.out.print("Enter a mark for student " + (i + 1) + ": ");
+            array[i] = scanner.nextInt();
+            i++;
         }
-        System.out.println("Phần tử min : " + min);
+        int count = 0;
+        System.out.print("List of mark: ");
+        for (int j = 0; j < array.length; j++) {
+            System.out.print(array[j] + "\t");
+            if (array[j] >= 5 && array[j] <= 10)
+                count++;
+        }
+        System.out.print("\n The number of students passing the exam is " + count);
     }
 }
