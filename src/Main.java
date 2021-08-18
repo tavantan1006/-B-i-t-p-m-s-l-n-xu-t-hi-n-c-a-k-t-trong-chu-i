@@ -1,24 +1,22 @@
 import com.sun.xml.internal.ws.addressing.WsaActionUtil;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("[*Bài tập] Mảng hai chiều - tính tổng các số ở đường chéo chính của ma trận vuông");
-        System.out.println("Array : ");
-        int[][] arrayA = {{1,2,3,4,0},{1,2,3,4,5},{1,2,3,4,5},{1,2,3,4,5},{1,2,3,4,5}};
-        System.out.println("Mảng 1 : ");
-        int tong = 0;
-        for (int i = 0; i < arrayA.length; i++) {
-            for (int j = 0; j < arrayA[i].length; j++) {
-                System.out.print(arrayA[i][j] + "\t");
-                if (j==i){
-                    tong+= arrayA[i][j];
-                }
+        System.out.println("[*Bài tập] Đếm số lần xuất hiện của ký tự trong chuỗi");
+        String text = "Hello world !!";
+        System.out.println(text);
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Nhập ký tự bạn muốn kiểm tra : ");
+        char characterCheck = sc.next().charAt(0);
+        int count = 0;
+        for (int i = 0; i < text.trim().length(); i++) {
+            if (characterCheck == (text.trim().toLowerCase().charAt(i))){
+                count++;
             }
-            System.out.println();
         }
-        System.out.println("Tổng đường chéo chính : " + tong);
-
+        System.out.println("Số lần ký tự xuất hiện trong chuỗi là : " +count);
     }
 }
